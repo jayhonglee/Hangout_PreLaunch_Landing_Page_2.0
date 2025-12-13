@@ -19,11 +19,11 @@ const WaitlistForm = () => {
           onChange={(e) => setEmail(e.target.value)}
           placeholder="name@email.com"
           required
-          className="flex-1 min-w-0 px-4 lg:px-6 py-3 lg:py-4 rounded-xl lg:rounded-2xl bg-white text-gray-800 placeholder-[#808080] focus:outline-none focus:ring-2 focus:ring-white/50 text-base lg:text-lg font-medium shadow-sm border-0"
+          className="w-full lg:flex-1 min-w-0 px-4 lg:px-6 py-3 lg:py-4 rounded-xl lg:rounded-2xl bg-white text-gray-800 placeholder-[#808080] focus:outline-none focus:ring-2 focus:ring-white/50 text-base lg:text-lg font-medium shadow-sm border-0"
         />
         <button
           type="submit"
-          className="px-6 lg:px-8 py-3 lg:py-4 bg-black text-white rounded-xl lg:rounded-2xl font-bold hover:bg-gray-900 active:scale-95 transition-all duration-200 text-base lg:text-lg whitespace-nowrap shadow-lg border-0"
+          className="w-full lg:flex-1 px-6 lg:px-8 py-3 lg:py-4 bg-black text-white rounded-xl lg:rounded-2xl font-bold hover:bg-gray-900 active:scale-95 transition-all duration-200 text-base lg:text-lg whitespace-nowrap shadow-lg border-0"
         >
           Join Vancouver Waitlist
         </button>

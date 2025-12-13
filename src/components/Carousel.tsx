@@ -59,12 +59,15 @@ const Carousel = () => {
           style={{ transform: `translateX(-${currentSlide * 100}%)` }}
         >
           {slides.map((slide) => (
-            <div key={slide.id} className="min-w-full flex justify-center">
-              <div className="relative w-full max-w-xs sm:max-w-sm mx-auto">
+            <div
+              key={slide.id}
+              className="min-w-full flex justify-center items-center px-4"
+            >
+              <div className="relative w-full max-w-[280px] sm:max-w-sm md:max-w-md lg:max-w-lg mx-auto">
                 <img
                   src={slide.image}
                   alt={`Slide ${slide.id + 1}`}
-                  className="w-full h-auto object-contain"
+                  className="w-full h-auto max-h-[70vh] object-contain"
                   draggable={false}
                 />
               </div>

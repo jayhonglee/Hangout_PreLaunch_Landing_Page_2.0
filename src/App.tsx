@@ -47,9 +47,11 @@ function App() {
             </div>
 
             {/* Text content on right */}
-            <div className="text-white text-center lg:text-left">
+            <div className="text-white text-left pl-4 lg:pl-0">
               <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6 leading-tight">
-                Find Hangouts With a Swipe
+                Find Hangouts
+                <br />
+                With a Swipe
               </h2>
               <p className="text-lg sm:text-xl lg:text-2xl text-white/95 font-medium leading-relaxed">
                 Find real group hangouts happening near you. Fast, fun, and zero
@@ -86,7 +88,9 @@ function App() {
             {/* Text content */}
             <div className="text-center lg:text-left">
               <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-black mb-4 sm:mb-6 leading-tight">
-                Launching in Vancouver First
+                Launching in
+                <br />
+                Vancouver First
               </h2>
               <p className="text-base sm:text-lg lg:text-xl text-[#202020] leading-relaxed font-normal">
                 We're starting with a small group of locals to create the best
@@ -102,21 +106,25 @@ function App() {
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16 items-center">
             {/* Logo and text */}
-            <div className="flex flex-col sm:flex-row items-center lg:items-center gap-4 sm:gap-6 text-center lg:text-left">
+            <div className="flex flex-col lg:flex-row items-center lg:items-center gap-4 lg:gap-6 text-center lg:text-left">
               <img
                 src={logo}
                 alt="HangoutHive Logo"
                 className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 object-contain shrink-0"
               />
               <p className="text-lg sm:text-xl lg:text-2xl font-medium">
-                Join real hangouts happening near you.
+                Join real hangouts
+                <br />
+                happening near you.
               </p>
             </div>
 
             {/* Form */}
             <div className="flex justify-center lg:justify-end">
               <div className="w-full max-w-md">
-                <WaitlistForm />
+                <div className="[&_form>div]:!flex-col">
+                  <WaitlistForm />
+                </div>
               </div>
             </div>
           </div>
