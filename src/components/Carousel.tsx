@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import mobileScreen from '../assets/MobileScreen.png';
+import { useState, useEffect } from "react";
+import mobileScreen from "../assets/MobileScreen.png";
 
 const Carousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -23,12 +23,15 @@ const Carousel = () => {
 
   const handleTouchStart = (e: React.TouchEvent) => {
     const touch = e.touches[0];
-    (e.currentTarget as HTMLElement).setAttribute('data-touch-start', touch.clientX.toString());
+    (e.currentTarget as HTMLElement).setAttribute(
+      "data-touch-start",
+      touch.clientX.toString()
+    );
   };
 
   const handleTouchEnd = (e: React.TouchEvent) => {
     const touchStart = parseFloat(
-      (e.currentTarget as HTMLElement).getAttribute('data-touch-start') || '0'
+      (e.currentTarget as HTMLElement).getAttribute("data-touch-start") || "0"
     );
     const touchEnd = e.changedTouches[0].clientX;
     const diff = touchStart - touchEnd;
@@ -58,19 +61,12 @@ const Carousel = () => {
           {slides.map((slide) => (
             <div key={slide.id} className="min-w-full flex justify-center">
               <div className="relative w-full max-w-xs sm:max-w-sm mx-auto">
-                {/* Phone frame effect - golden/orange gradient */}
-                <div className="relative bg-gradient-to-br from-amber-400 via-amber-500 to-amber-600 p-2 sm:p-3 lg:p-4 rounded-[2.5rem] sm:rounded-[3rem] shadow-2xl">
-                  <div className="bg-black rounded-[2rem] sm:rounded-[2.5rem] p-1 sm:p-1.5">
-                    <div className="bg-white rounded-[1.75rem] sm:rounded-[2rem] overflow-hidden">
-                      <img
-                        src={slide.image}
-                        alt={`Slide ${slide.id + 1}`}
-                        className="w-full h-auto object-contain"
-                        draggable={false}
-                      />
-                    </div>
-                  </div>
-                </div>
+                <img
+                  src={slide.image}
+                  alt={`Slide ${slide.id + 1}`}
+                  className="w-full h-auto object-contain"
+                  draggable={false}
+                />
               </div>
             </div>
           ))}
@@ -84,8 +80,8 @@ const Carousel = () => {
               onClick={() => goToSlide(index)}
               className={`transition-all duration-300 rounded-full cursor-pointer ${
                 currentSlide === index
-                  ? 'w-3 h-3 bg-white'
-                  : 'w-3 h-3 bg-white/40 hover:bg-white/60'
+                  ? "w-3 h-3 bg-white"
+                  : "w-3 h-3 bg-white/40 hover:bg-white/60"
               }`}
               aria-label={`Go to slide ${index + 1}`}
             />
@@ -97,4 +93,3 @@ const Carousel = () => {
 };
 
 export default Carousel;
-
