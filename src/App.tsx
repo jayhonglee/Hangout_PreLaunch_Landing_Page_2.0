@@ -65,10 +65,10 @@ function App() {
       {/* Launch Strategy Section */}
       <section className="bg-white py-12 sm:py-16 lg:py-24 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-4 xl:gap-6 items-center">
             {/* Icon */}
-            <div className="flex justify-center lg:justify-start">
-              <div className="w-32 h-32 sm:w-40 sm:h-40 lg:w-48 lg:h-48 bg-[#F6F8FA] rounded-2xl sm:rounded-3xl flex items-center justify-center shadow-sm">
+            <div className="flex justify-center lg:justify-center">
+              <div className="w-32 h-32 sm:w-40 sm:h-40 lg:w-48 lg:h-48 bg-[#F6F8FA] rounded-2xl sm:rounded-3xl flex items-center justify-center shadow-sm lg:-mr-2 xl:-mr-4">
                 <svg
                   className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 text-[#808080]"
                   fill="none"
