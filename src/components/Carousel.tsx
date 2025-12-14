@@ -1,18 +1,20 @@
 import { useState, useEffect } from "react";
 import mobileScreen from "../assets/MobileScreen.png";
+import mobileScreen2 from "../assets/MobileScreen2.png";
+import mobileScreen3 from "../assets/MobileScreen3.png";
 
 const Carousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const slides = [
     { id: 0, image: mobileScreen },
-    { id: 1, image: mobileScreen },
-    { id: 2, image: mobileScreen },
+    { id: 1, image: mobileScreen3 },
+    { id: 2, image: mobileScreen2 },
   ];
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 5000); // Auto-advance every 5 seconds
+    }, 3000); // Auto-advance every 3 seconds
 
     return () => clearInterval(interval);
   }, [slides.length]);
