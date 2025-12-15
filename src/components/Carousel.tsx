@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import mobileScreen from "../assets/MobileScreen.png";
 import mobileScreen2 from "../assets/MobileScreen2.png";
 import mobileScreen3 from "../assets/MobileScreen3.png";
+import { trackCarouselSlide, trackButtonClick } from "../utils/analytics";
 
 const Carousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -13,14 +14,25 @@ const Carousel = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length);
+      setCurrentSlide((prev) => {
+        const next = (prev + 1) % slides.length;
+        trackCarouselSlide(next + 1, slides.length);
+        return next;
+      });
     }, 3000); // Auto-advance every 3 seconds
 
     return () => clearInterval(interval);
   }, [slides.length]);
 
+  useEffect(() => {
+    // Track initial slide
+    trackCarouselSlide(currentSlide + 1, slides.length);
+  }, []); // Only on mount
+
   const goToSlide = (index: number) => {
     setCurrentSlide(index);
+    trackCarouselSlide(index + 1, slides.length);
+    trackButtonClick(`Carousel Indicator ${index + 1}`, "carousel");
   };
 
   const handleTouchStart = (e: React.TouchEvent) => {

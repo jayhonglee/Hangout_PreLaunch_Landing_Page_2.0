@@ -1,8 +1,18 @@
+import { useEffect } from "react";
 import Carousel from "./components/Carousel";
 import WaitlistForm from "./components/WaitlistForm";
 import logo from "./assets/Logo.png";
+import { initScrollTracking, trackPageView } from "./utils/analytics";
 
 function App() {
+  useEffect(() => {
+    // Track page view on mount
+    trackPageView(window.location.pathname);
+
+    // Initialize scroll tracking
+    initScrollTracking();
+  }, []);
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}

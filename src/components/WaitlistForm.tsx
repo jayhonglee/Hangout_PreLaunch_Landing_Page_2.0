@@ -1,5 +1,11 @@
 import { useState } from "react";
 import emailjs from "@emailjs/browser";
+import {
+  trackButtonClick,
+  trackInputFocus,
+  trackInputTyping,
+  trackFormSubmit,
+} from "../utils/analytics";
 
 const WaitlistForm = () => {
   const [email, setEmail] = useState("");
@@ -37,6 +43,7 @@ const WaitlistForm = () => {
       });
 
       setSubmitStatus("success");
+      trackFormSubmit("waitlist_form", true);
       setEmail("");
 
       // Reset success message after 3 seconds
@@ -46,6 +53,7 @@ const WaitlistForm = () => {
     } catch (error) {
       console.error("Error sending email:", error);
       setSubmitStatus("error");
+      trackFormSubmit("waitlist_form", false);
 
       // Reset error message after 3 seconds
       setTimeout(() => {
@@ -62,7 +70,13 @@ const WaitlistForm = () => {
         <input
           type="email"
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={(e) => {
+            setEmail(e.target.value);
+            if (e.target.value.length > 0) {
+              trackInputTyping("waitlist_email", "email");
+            }
+          }}
+          onFocus={() => trackInputFocus("waitlist_email", "email")}
           placeholder="name@email.com"
           required
           disabled={isSubmitting}
@@ -70,6 +84,9 @@ const WaitlistForm = () => {
         />
         <button
           type="submit"
+          onClick={() =>
+            trackButtonClick("Join Vancouver Waitlist", "waitlist_form")
+          }
           disabled={isSubmitting}
           className="w-full lg:flex-1 px-6 lg:px-8 py-3 lg:py-4 bg-black text-white rounded-xl lg:rounded-2xl font-bold hover:bg-gray-900 active:scale-95 transition-all duration-200 text-base lg:text-lg whitespace-nowrap shadow-lg border-0 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-black"
         >
